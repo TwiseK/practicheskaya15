@@ -23,5 +23,7 @@ jobs:
         run: chmod +x mvnw
 
       - name: Check style project
+#        continue-on-error: true
         run: |
-          ./mvnw spring-javaformat:apply
+          pip install pycodestyle
+          pycodestyle .

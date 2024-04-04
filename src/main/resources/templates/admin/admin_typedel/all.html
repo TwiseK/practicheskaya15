@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Список типов доставки</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<h1>Список типов доставки</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Название</th>
+    </tr>
+    <tr th:each=" typedel : ${typedels}">
+        <td th:text="${typedel.id}"></td>
+        <td th:text="${typedel.name}"></td>
+        <td>
+            <a th:href="@{'/admin/admin_typedel' + '/update/' + ${typedel.id}}" class="btn-edit">Редактировать</a>
+            <a th:href="@{'/admin/admin_typedel/' + 'delete/' + ${typedel.id}}" class="btn-delete" th:method="delete">Удалить</a>
+        </td>
+    </tr>
+</table>
+<a href="/admin/admin_typedel/create" class="btn-new">Создать</a>
+<a href="/home" class="btn-back">Назад</a>
+</body>
+</html>

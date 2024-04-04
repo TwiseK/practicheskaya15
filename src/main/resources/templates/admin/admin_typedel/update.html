@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактирование типа доставки</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<h1>Редактирование типа доставки</h1>
+<form th:method="post" th:action="@{'/admin/admin_typedel' + '/update/' + ${typedels.id}}" th:object="${typedels}" autocomplete="off">
+    <label for="name">Название:</label>
+    <input type="text" id="name" min="1" max="255" name="name" th:field="*{name}" required>
+    <input type="submit" value="Сохранить" class="btn-save">
+</form>
+<a href="/admin/admin_typedel/" class="btn-back">Отмена</a>
+</body>
+</html>

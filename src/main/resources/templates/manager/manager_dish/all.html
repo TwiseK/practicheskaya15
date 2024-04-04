@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Список блюд</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<h1>Список блюд</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Цена</th>
+        <th>Название</th>
+        <th>Описание</th>
+        <th>Фото</th>
+    </tr>
+    <tr th:each=" dish : ${dishes}">
+        <td th:text="${dish.id}"></td>
+        <td th:text="${dish.cost}"></td>
+        <td th:text="${dish.name}"></td>
+        <td th:text="${dish.info}"></td>
+        <td th:text="${dish.image}"></td>
+        <td>
+            <a th:href="@{'/manager/manager_dish' + '/update/' + ${dish.id}}" class="btn-edit">Редактировать</a>
+            <a th:href="@{'/manager/manager_dish/' + 'delete/' + ${dish.id}}" class="btn-delete" th:method="delete">Удалить</a>
+        </td>
+    </tr>
+</table>
+<a href="/manager/manager_dish/create" class="btn-new">Создать</a>
+<a href="/home" class="btn-back">Назад</a>
+</body>
+</html>

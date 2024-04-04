@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Список статусов для заказа</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<h1>Список статусов для заказа</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Название</th>
+    </tr>
+    <tr th:each=" status : ${statuss}">
+        <td th:text="${status.id}"></td>
+        <td th:text="${status.name}"></td>
+        <td>
+            <a th:href="@{'/admin/admin_status' + '/update/' + ${status.id}}" class="btn-edit">Редактировать</a>
+            <a th:href="@{'/admin/admin_status/' + 'delete/' + ${status.id}}" class="btn-delete" th:method="delete">Удалить</a>
+        </td>
+    </tr>
+</table>
+<a href="/admin/admin_status/create" class="btn-new">Создать</a>
+<a href="/home" class="btn-back">Назад</a>
+</body>
+</html>

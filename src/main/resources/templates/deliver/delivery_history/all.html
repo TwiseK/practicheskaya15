@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>История доставок</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<h1>История доставок</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Адрес</th>
+        <th>Номер телефона</th>
+        <th>ФИО</th>
+        <th>Дата и Время</th>
+    </tr>
+    <tr th:each=" deliver : ${delivers}">
+        <td th:text="${deliver.id}"></td>
+        <td th:text="${deliver.user != null ? deliver.user.address : ''}"></td>
+        <td th:text="${deliver.user != null ? deliver.user.phone : ''}"></td>
+        <td th:text="${deliver.user != null ? deliver.user.surname + ' ' + deliver.user.name + ' ' + deliver.user.middle : ''}"></td>
+        <td th:text="${#temporals.format(deliver.orderdel.dateTime, 'dd.MM.yyyy HH:mm')}"></td>
+    </tr>
+</table>
+<a href="/home" class="btn-back">Назад</a>
+</body>
+</html>

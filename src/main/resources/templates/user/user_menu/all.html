@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Beer Burger</title>
+    <link rel="stylesheet" type="text/css" href="/style_menu.css">
+</head>
+<body>
+<nav>
+    <ul>
+        <li><a href="/user/user_menu/breakfast">Завтрак</a></li>
+        <li><a href="/user/user_menu/lunch">Обед</a></li>
+        <li><a href="/user/user_menu/dinner">Ужин</a></li>
+        <li><a href="/user/user_basket">Корзина</a>
+        <li><a href="/user/user_profile">Мой профиль</a></li>
+        <li><a href="/home">Для сотрудников</a></li>
+    </ul>
+</nav>
+<section class="services-section">
+    <div class="dish" th:each=" dish : ${dishes}">
+        <h2 align="center">Блюда</h2>
+        <img th:src="@{${dish.image}}" alt="Фото блюда" width="700" height="400" style="border-radius: 15px 40px 15px 40px; border: 5px #974cd2 solid; box-shadow: 0 0 10px rgba(66,0,107,0.74); border-color: rgb(179,92,250)"/>
+        <p th:text = "'Название: ' + ${dish.name}"></p>
+        <p th:text = "'Стоимость: ' + ${dish.cost}"></p>
+        <p th:text = "'Описание: ' + ${dish.info}"></p>
+        <form th:method="get" th:action="@{'/user/' + 'adddish/' +${dish.id}}" id="deleteCategoryForm">
+            <input type="submit" value="Добавить в корзину" class="btn-save">
+        </form>
+    </div>
+</section>
+</body>
+</html>

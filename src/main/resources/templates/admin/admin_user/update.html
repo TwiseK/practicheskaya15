@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактирование cотрудника</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<h1>Редактирование сотрудника</h1>
+<form th:method="post" th:action="@{'/admin/admin_user' + '/update/' + ${users.id}}" th:object="${users}" autocomplete="off">
+    <input hidden="hidden" type="text" id="password" name="password" th:field="*{password}" required>
+    <input hidden="hidden" type="text" id="login" name="login" th:field="*{login}" required>
+    <label for="name">Имя:</label>
+    <input type="text" id="name" min="1" max="255" name="name" th:field="*{name}" required>
+    <label for="surname">Фамилия:</label>
+    <input type="text" id="surname" min="1" max="255" name="surname" th:field="*{surname}" required>
+    <label for="middle">Отчество:</label>
+    <input type="text" id="middle" min="1" max="255" name="middle" th:field="*{middle}" required>
+    <label for="address">Адрес:</label>
+    <input type="text" id="address" min="1" max="255" name="address" th:field="*{address}" required>
+    <label for="dateBirth">Дата рождения:</label>
+    <input type="date" id="dateBirth"  name="dateBirth" th:field="*{dateBirth}" required>
+    <label for="post">Должность:</label>
+    <input type="text" id="post" min="1" max="255" name="post" th:field="*{post}" required>
+    <div th:each="role : ${roles}">
+        <input type="checkbox" th:id="${role}"
+               th:name="${'roles[]'}" th:value="${role}"
+               th:checked="${#lists.contains(users.roles,role)}">
+
+        <label th:text="${role}"></label>
+    </div>
+    <input type="submit" value="Сохранить" class="btn-save">
+</form>
+<a href="/admin/admin_user/" class="btn-back">Отмена</a>
+</body>
+</html>

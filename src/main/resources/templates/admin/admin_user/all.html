@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Список сотрудников</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<h1>Список сотрудников</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Имя</th>
+        <th>Фамилия</th>
+        <th>Отчество</th>
+        <th>Логин</th>
+        <th>Пароль</th>
+        <th>Адрес</th>
+        <th>Дата рождения</th>
+        <th>Должность</th>
+    </tr>
+    <tr th:each=" user : ${users}">
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.name}"></td>
+        <td th:text="${user.surname}"></td>
+        <td th:text="${user.middle}"></td>
+        <td th:text="${user.login}"></td>
+        <td th:text="${user.password}"></td>
+        <td th:text="${user.address}"></td>
+        <td th:text="${user.dateBirth}"></td>
+        <td th:text="${user.post}"></td>
+        <td>
+            <a th:href="@{'/admin/admin_user' + '/update/' + ${user.id}}" class="btn-edit">Редактировать</a>
+            <a th:href="@{'/admin/admin_user/' + 'delete/' + ${user.id}}" class="btn-delete" th:method="delete">Удалить</a>
+        </td>
+    </tr>
+</table>
+<a href="/home" class="btn-back">Назад</a>
+</body>
+</html>

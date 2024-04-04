@@ -1,0 +1,81 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('img/beer_auth.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.message p{
+    margin: 200px 500px;
+}
+
+.reg-container {
+    width: 550px;
+    height: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: rgba(114, 110, 110, 0.34);
+    transform: translate(-50%, -50%);
+}
+.reg-container h2{
+    margin: 30px 150px;
+    text-align: center;
+    color: #556B2F;
+    font-size: 35px;
+    text-transform: uppercase;
+    text-shadow:
+            -1px -1px 0 #000,
+            1px -1px 0 #000,
+            -1px  1px 0 #000,
+            1px  1px 0 #000;
+
+}
+.form-group{
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.form-group label {
+    margin-left: 30px;
+    margin-right: 20px;
+    font-size: 20px;
+    width: 80px; /* Ширина метки */
+    text-align: right; /* Выравнивание текста по правому краю */
+}
+
+.form-group input {
+    padding: 10px;
+    width: 60%;
+    color: #DAC758;
+    border: 1px solid #DAC758;
+    box-sizing: border-box;
+    font-size: 20px; /* Размер шрифта поля ввода */
+
+}
+.form-group input{
+    border: 1px solid #DAC758;
+}
+.reg-button{
+    margin: 20px 140px;
+    display: inline-block;
+    padding: 15px 60px;
+    background-color: #808000;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.reg-button:hover{
+    background: #494906;
+}

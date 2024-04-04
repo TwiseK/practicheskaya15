@@ -1,0 +1,96 @@
+body{
+    background: #ABF62DE0;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #D6A3FB;
+    border-color: #b35cfa;
+    border-radius: 15px 40px 15px 40px;
+    border-style: ridge;
+}
+
+li {
+    float: left;
+    margin-right: 90px;
+    margin-left: 90px;
+}
+
+li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #b35cfa;
+}
+
+p {
+    font-size: 20px;
+    color: #000000;
+    line-height: 1.5;
+    text-indent: 26px;
+}
+
+.dish img{
+    margin: 0px 570px;
+}
+
+.dish p{
+    text-align: center;
+}
+
+.btn-save{
+    margin: 10px 850px;
+    display: inline-block;
+    text-decoration: none;
+    background-color: #D6A3FB;
+    color: #000000;
+    border-radius: 4px;
+    border: 1px solid #3333;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 10px 20px;;
+    cursor: pointer;
+}
+
+.btn-save:hover{
+    background-color: #a562d9;
+}
+
+
+
+h1 {
+    font-size: 36px;
+    color: black;
+    font-weight: bold;
+    margin-bottom: 10px;
+    background-color: #D6A3FB;
+    border-radius: 20px;
+    border-style: ridge;
+}
+
+h2 {
+    font-size: 28px;
+    color: black;
+    font-weight: bold;
+    margin-bottom: 15px;
+    background-color: #D6A3FB;
+    border-radius: 20px;
+    border-color: #b35cfa;
+    border-style: ridge;
+}
+
+h3 {
+    font-size: 20px;
+    color: black;
+    margin-bottom: 20px;
+}
+
+
+
+

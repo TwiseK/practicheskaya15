@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Список отзывов</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<h1>Список отзывов</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Оценка</th>
+        <th>Описание</th>
+    </tr>
+    <tr th:each=" feedback : ${feedbacks}">
+        <td th:text="${feedback.id}"></td>
+        <td th:text="${feedback.mark}"></td>
+        <td th:text="${feedback.info}"></td>
+        <td>
+            <a th:href="@{'/admin/admin_feedback' + '/update/' + ${feedback.id}}" class="btn-edit">Редактировать</a>
+            <a th:href="@{'/admin/admin_feedback/' + 'delete/' + ${feedback.id}}" class="btn-delete" th:method="delete">Удалить</a>
+        </td>
+    </tr>
+</table>
+<a href="/home" class="btn-back">Назад</a>
+</body>
+</html>
+
+ПРОВЕРКА ПОСЛЕ ТОГО КАК ПОЯВЯТСЯ ДАННЫЕ ПОНЯТНО????????!!!!!!!!

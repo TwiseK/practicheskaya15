@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>История заказов</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<h1>История заказов</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Адрес</th>
+        <th>Номер телефона</th>
+        <th>ФИО</th>
+        <th>Стоимость</th>
+        <th>Дата и Время</th>
+    </tr>
+    <tr th:each=" order : ${orders}">
+        <td th:text="${order.id}"></td>
+        <td th:text="${order.user != null ? order.user.address : ''}"></td>
+        <td th:text="${order.user != null ? order.user.phone : ''}"></td>
+        <td th:text="${order.user != null ? order.user.surname + ' ' + order.user.name + ' ' + order.user.middle : ''}"></td>
+        <td th:text="${order.orderdel != null ? order.orderdel.cost : ''}"></td>
+        <td th:text="${#temporals.format(order.orderdel.dateTime, 'dd.MM.yyyy HH:mm')}"></td>
+    </tr>
+</table>
+<a href="/home" class="btn-back">Назад</a>
+</body>
+</html>

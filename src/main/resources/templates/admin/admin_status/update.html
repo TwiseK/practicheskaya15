@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактирование статуса</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<h1>Редактирование статуса</h1>
+<form th:method="post" th:action="@{'/admin/admin_status' + '/update/' + ${statuss.id}}" th:object="${statuss}" autocomplete="off">
+    <label for="name">Название:</label>
+    <input type="text" id="name" min="1" max="255" name="name" th:field="*{name}" required>
+    <input type="submit" value="Сохранить" class="btn-save">
+</form>
+<a href="/admin/admin_status/" class="btn-back">Отмена</a>
+</body>
+</html>

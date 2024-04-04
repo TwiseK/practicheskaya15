@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Beer Burger</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header>
+    <h1>Главная панель</h1>
+</header>
+<nav>
+    <ul class="menu">
+        <li><a href="/deliver/delivery" class="btn">Список доставок</a></li>
+        <li><a href="/deliver/delivery_history" class="btn">История заказов</a></li>
+        <li><a href="/manager/manager_typedish" class="btn">Список типа блюд</a></li>
+        <li><a href="/manager/manager_dish" class="btn">Cписок блюд</a></li>
+        <li><a href="/manager/manager_history" class="btn">История заказов</a></li>
+        <li><a href="/manager/manager_zakaz" class="btn">Подтверждение заказа</a></li>
+        <li><a href="/manager/manager_basket" class="btn">Корзины</a></li>
+        <li><a href="/admin/admin_status" class="btn">Статус заказа</a></li>
+        <li><a href="/admin/admin_user" class="btn">Сотрудники</a></li>
+        <li><a href="/admin/admin_typedel" class="btn">Тип доставки</a></li>
+        <!-- Добавьте кнопки для других страниц по аналогии -->
+    </ul>
+</nav>
+</form>
+<form th:action="@{/logout}" method="post" class="form-group">
+    <h1 th:inline="text">Добро пожаловать [[${#httpServletRequest.remoteUser}]]!</h1>
+    <a href="/login" class="btn-back">Выход</a>
+</form>
+<a href="/user/user_menu/breakfast">Вернуться к главной</a>
+</body>
+</html>

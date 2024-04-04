@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Текущие заказы</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<h1>Текущие заказы</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>ФИО клиента</th>
+        <th>Номер корзины</th>
+        <th>Стоимость</th>
+        <th>Дата и время</th>
+    </tr>
+    <tr th:each=" order : ${orders}">
+        <td th:text="${order.id}"></td>
+        <td th:text="${order.basket != null ? order.basket.basket.surname + ' ' + order.basket.basket.name + ' ' + order.basket.basket.middle : ''}"></td>
+        <td th:text="${order.basket != null ? order.basket.num : ''}"></td>
+        <td th:text="${order.cost}"></td>
+        <td th:text="${#temporals.format(order.dateTime, 'dd.MM.yyyy HH:mm')}"></td>
+        <td>
+            <a th:href="@{'/manager/manager_zakaz' + '/create/' + ${order.id}}" class="btn-edit">Подтвердить</a>
+        </td>
+    </tr>
+</table>
+<a href="/home" class="btn-back">Назад</a>
+</body>
+</html>

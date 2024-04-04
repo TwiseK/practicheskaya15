@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактирование блюда</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<h1>Редактирование блюда</h1>
+<form th:method="post" th:action="@{'/manager/manager_dish' + '/update/' + ${dishes.id}}" th:object="${dishes}" autocomplete="off">
+    <label for="cost">Цена:</label>
+    <input type="number" id="cost" min="1" max="5000" name="cost" th:field="*{cost}" required>
+    <label for="name">Название:</label>
+    <input type="text" id="name" min="1" max="255" name="name" th:field="*{name}" required>
+    <label for="info">Описание:</label>
+    <input type="text" id="info" min="1" max="400" name="info" th:field="*{info}" required>
+    <label for="image">Фото:</label>
+    <input type="text" id="image" min="1" name="image" th:field="*{image}" required>
+    <label>Тип блюда</label>
+    <div class="form-group">
+        <select th:field="*{typedish}" id="typedish" class="custom-select">
+            <option value="">Выберите тип блюда</option>
+            <option th:each="typedish : ${typedishes}" th:value="${typedish.id}" th:text="${typedish.name}"></option>
+        </select>
+        <span class="error-message" th:if="${#fields.hasErrors('typedish')}" th:errors="*{typedish}"></span>
+    </div>
+    <input type="submit" value="Сохранить" class="btn-save">
+</form>
+<a href="/manager/manager_dish" class="btn-back">Отмена</a>
+</body>
+</html>

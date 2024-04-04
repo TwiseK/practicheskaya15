@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Профиль пользователя</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<section class="hero-section">
+    <h1 align="center">Профиль пользователя</h1>
+</section>
+<section class="services-section">
+    <div class="main" th:object="${user}">
+        <p th:text="'Логин - ' + ${user.login}"></p>
+            <p th:text="'ФИО - ' + ${user.surname} + ' ' + ${user.name} + ' ' + ${user.middle}"></p>
+        <p th:text="'Адрес - ' + ${user.address}"></p>
+        <p th:text="'Номер телефона - ' + ${user.phone}"></p>
+        <p align="center"><a th:href="@{'/user/user_profile/update/' + ${user.id}}" class="btn-save">Редактировать данные</a></p>
+    </div>
+</section>
+<section class="services-section">
+    <div class="main">
+        <h2 align="center">Мои Заказы</h2>
+        <table>
+            <tr>
+                <th>Номер заказа</th>
+                <th>Стоимость</th>
+                <th>Статус</th>
+                <th>Дата и время</th>
+            </tr>
+            <tr th:each=" order : ${orders}">
+                <td th:text="${order.basket.id}"></td>
+                <td th:text="${order.cost}"></td>
+                <td th:text="${order.status.name}"></td>
+                <td th:text="${#temporals.format(order.dateTime, 'dd.MM.yyyy HH:mm')}"></td>
+            </tr>
+        </table>
+    </div>
+</section>
+<a href="/user/user_menu/breakfast" class="btn-back">Назад</a>
+</body>
+</html>

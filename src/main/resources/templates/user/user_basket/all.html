@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Корзина</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<h1>Корзина</h1>
+<table>
+    <tr>
+        <th>Название</th>
+        <th>Цена</th>
+    </tr>
+    <tr th:each=" selecteddish : ${selecteddishes}">
+        <td th:text="${selecteddish.dish.name}"></td>
+        <td th:text="${selecteddish.dish.cost}"></td>
+
+        <td>
+            <a th:href="@{'/user/user_basket/' + 'delete/' + ${selecteddish.id}}" class="btn-delete" th:method="delete">Удалить</a>
+        </td>
+    </tr>
+</table>
+<div class="sum">
+    <p th:text = "'Итоговая сумма: ' + ${basket.sum}"></p>
+</div>
+<a href="/user/user_menu/all" class="btn-back">Назад</a>
+<a th:href="@{'/user/user_basket/' + 'create/' + ${basket.id}}" class="btn-create" th:method="delete">Оформить заказ</a>
+</body>
+</html>

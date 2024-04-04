@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Список категории блюд</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<h1>Список категории блюд</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Название</th>
+    </tr>
+    <tr th:each=" typedish : ${typedishes}">
+        <td th:text="${typedish.id}"></td>
+        <td th:text="${typedish.name}"></td>
+        <td>
+            <a th:href="@{'/manager/manager_typedish/' + 'update/' + ${typedish.id}}" class="btn-edit">Редактировать</a>
+            <a th:href="@{'/manager/manager_typedish/' + 'delete/' + ${typedish.id}}" class="btn-delete" th:method="delete">Удалить</a>
+        </td>
+    </tr>
+</table>
+<a href="/manager/manager_typedish/create" class="btn-new">Создать</a>
+<a href="/home" class="btn-back">Назад</a>
+</body>
+</html>

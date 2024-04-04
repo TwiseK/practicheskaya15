@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактирование пользователя</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<h1>Редактирование пользователя</h1>
+<form th:method="post" th:action="@{'/user/user_profile/update/' + ${users.id}}" th:object="${users}">
+    <input hidden="hidden" type="text" min="3" max="30" id="password" name="password" th:field="*{password}" required>
+    <label for="login">Логин:</label>
+    <input type="text" id="login" min="4" max="11" name="login" th:field="*{login}" required>
+    <label for="address">Адрес:</label>
+    <input type="text" id="address" min="1" max="255" name="address" th:field="*{address}" required>
+    <label for="dateBirth">Дата рождения:</label>
+    <input type="date" id="dateBirth" name="dateBirth" th:field="*{dateBirth}" required>
+    <label for="phone">Номер телефона:</label>
+    <input type="text" id="phone" name="phone" min="1" max="12" th:field="*{phone}" required>
+    <label for="surname">Фамилия:</label>
+    <input type="text" id="surname" min="1" max="30" name="surname" th:field="*{surname}" required>
+    <label for="name">Имя:</label>
+    <input type="text" id="name" min="2" max="30" name="name" th:field="*{name}" required>
+    <label for="middle">Отчество:</label>
+    <input type="text" id="middle" min="2" max="30" name="middle" th:field="*{middle}" required>
+    <input type="submit" value="Применить изменения" class="btn-save">
+</form>
+<a href="/user/user_profile" class="btn-back">Отмена</a>
+</body>
+</html>

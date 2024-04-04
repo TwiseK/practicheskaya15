@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактирование категории</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<h1>Редактирование категории</h1>
+<form th:method="post" th:action="@{'/manager/manager_typedish' + '/update/' + ${typedishes.id}}" th:object="${typedishes}" autocomplete="off">
+    <label for="name">Название:</label>
+    <input type="text" id="name" min="1" max="255" name="name" th:field="*{name}" required>
+    <input type="submit" value="Сохранить" class="btn-save">
+</form>
+<a href="/manager/manager_typedish" class="btn-back">Отмена</a>
+</body>
+</html>
